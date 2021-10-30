@@ -11,11 +11,12 @@ router.get('/', (req, res) => {
       model: Product,
       attributes: ['product_name', 'price', 'stock', 'category_id']
     }
-  }) .then(tagData => res.json(tagData))
-     .catch(err => {
-       console.log(err);
-       res.status(500).json(err);
-     });
+  })
+    .then(tagData => res.json(tagData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.get('/:id', (req, res) => {
@@ -29,22 +30,24 @@ router.get('/:id', (req, res) => {
       model: Product,
       attributes: ['product_name', 'price', 'stock', 'category_id']
     }
-  }) .then(tagData => res.json(tagData))
-     .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-     });
+  })
+    .then(tagData => res.json(tagData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post('/', (req, res) => {
   // create a new tag
   Tag.create({
     tag_name: req.body.tag_name
-  }) .then(tagData => res.json(tagData))
-     .catch(err => {
-       console.log(err);
-       res.status(500).json(err);
-     });
+  })
+    .then(tagData => res.json(tagData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.put('/:id', (req, res) => {
@@ -53,16 +56,18 @@ router.put('/:id', (req, res) => {
     where: {
       id: req.params.id
     }
-  }) .then(tagData => {
-        if(!tagData) {
-          res.status(404).json({message: 'No tag was found with this id'});
-          return;
-        }
-        res.json(tagData);
-  }) .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-  });
+  })
+    .then(tagData => {
+      if (!tagData){
+        res.status(404).json({message:'No tag was found with this id'});
+        return;
+      }
+      res.json(tagData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.delete('/:id', (req, res) => {
@@ -71,15 +76,17 @@ router.delete('/:id', (req, res) => {
     where: {
       id: req.params.id
     }
-  }) .then(tagData => {
-        if(!tagData) {
-          res.status(404).json({message: 'No tag was found with this id'});
-          return;
-        }
-        res.json(tagData);
-  }) .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+  })
+  .then(tagData => {
+    if (!tagData) {
+      res.status(404).json({message: 'No tag was found with this id'});
+      return;
+    }
+    res.json(tagData);
+  })
+  .catch(err =>{
+    console.log(err);
+    res.status(500).json(err);
   });
 });
 

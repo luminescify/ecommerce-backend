@@ -17,16 +17,17 @@ Product.init(
     },
     product_name: {
       type: DataTypes.STRING,
-      allowNull: FontFaceSetLoadEvent,
+      allowNull: false,
     },
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      isNumeric: true,
+      isDecimal: true
     },
     stock: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.INTEGER,
       allowNull: false,
+      default: 10,
       isNumeric: true
     },
     category_id: {
@@ -42,7 +43,7 @@ Product.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product',
+    modelName: 'Product',
   }
 );
 
