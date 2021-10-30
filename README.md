@@ -1,7 +1,4 @@
-# ecommerce-backend
-Adding back-end functionality to an e-commerce webpage.
-
-# Note Taker
+# E-Commerce Back End
 
 ## Description
 Adding back-end functionality to an e-commerce webpage.
